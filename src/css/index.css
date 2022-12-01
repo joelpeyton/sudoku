@@ -11,9 +11,13 @@ body {
 }
 
 .container {
-    width: 90%;
-    background-color: #24232b;
+    display: flex;
+    justify-content: center;
+    width: fit-content;
+    background-color: #18171f;
     color: #b5b3bc;
+    padding-left: 0;
+    padding-right: 0;
 }
 
 i {
@@ -27,21 +31,27 @@ h3 {
     color: #7c7989;
 }
 
-/* Display component */
-.display {
-    font-family: monospace;
-    font-weight: 800;
-    font-size: 1.25rem;
+/* Board component */
+.board {
+    border: 1px solid #d35400;
+    width: 600px;
+    height: 600px;
+    float: left;
+}
+
+/* Square component */
+.square {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #d35400;
+    width: calc(100% / 9);
+    height: calc(100% / 9);
+    float: left;
+    font-size: 2rem;
 }
 
 /* RWD */
-
-/* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 374px) {
-    .display {
-        font-size: 1rem;
-    }
-}
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {

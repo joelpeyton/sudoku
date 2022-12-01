@@ -1,13 +1,52 @@
+/* General */ 
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+    font-weight: 500;
+    background-color: #0e0d13;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.container {
+    width: 90%;
+    background-color: #24232b;
+    color: #b5b3bc;
 }
+
+i {
+    float: right;
+    color: orangered !important;
+}
+
+/* Header component */
+h3 {
+    text-align: center;
+    color: #7c7989;
+}
+
+/* Display component */
+.display {
+    font-family: monospace;
+    font-weight: 800;
+    font-size: 1.25rem;
+}
+
+/* RWD */
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 374px) {
+    .display {
+        font-size: 1rem;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    .container {
+        width: 50%;
+    }
+} 
+

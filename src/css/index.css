@@ -5,7 +5,8 @@ body {
         'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
         sans-serif;
     font-weight: 500;
-    background-color: #0e0d13;
+    background-color: #ecf0f1;
+    color: #0e0d13;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -14,25 +15,23 @@ body {
     display: flex;
     justify-content: center;
     width: fit-content;
-    color: #b5b3bc;
     padding-left: 0;
     padding-right: 0;
 }
 
 i {
     float: right;
-    color: orangered !important;
+    color: #34495e !important;
 }
 
 /* Header component */
 h3 {
     text-align: center;
-    color: #7c7989;
 }
 
 /* Board component */
 .board {
-    border: 1px solid #d35400;
+    border: 2px solid #34495e;
     width: 600px;
     height: 600px;
     float: left;
@@ -43,7 +42,7 @@ h3 {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid #d35400;
+    border: 1px solid #34495e;
     width: calc(100% / 9);
     height: calc(100% / 9);
     float: left;
@@ -52,6 +51,7 @@ h3 {
 
 /* NumberPad component */
 .numberPad {
+    border: 1px solid #34495e;
     margin-left: calc(600px / 9);
     width: calc(600px / 9);
     height: 600px;
@@ -62,7 +62,7 @@ h3 {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid #d35400;
+    border: 1px solid #34495e;
     width: calc(600px / 9);
     height: calc(600px / 9);
     font-size: 2rem;

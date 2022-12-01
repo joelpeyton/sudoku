@@ -14,7 +14,6 @@ body {
     display: flex;
     justify-content: center;
     width: fit-content;
-    background-color: #18171f;
     color: #b5b3bc;
     padding-left: 0;
     padding-right: 0;
@@ -48,6 +47,24 @@ h3 {
     width: calc(100% / 9);
     height: calc(100% / 9);
     float: left;
+    font-size: 2rem;
+}
+
+/* NumberPad component */
+.numberPad {
+    margin-left: calc(600px / 9);
+    width: calc(600px / 9);
+    height: 600px;
+}
+
+/* NumberBtn component */
+.numberBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #d35400;
+    width: calc(600px / 9);
+    height: calc(600px / 9);
     font-size: 2rem;
 }
 

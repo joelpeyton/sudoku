@@ -1,11 +1,15 @@
 import Board from "./Board";
 import Header from "./Header";
+import NumberPad from "./NumberPad";
 
 function App() {
   return (
     <>
         <Header />
-        <Board />
+        <div className="container ">
+            <Board />
+            <NumberPad />
+        </div>
     </>
   );
 }

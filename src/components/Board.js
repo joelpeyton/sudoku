@@ -28,10 +28,10 @@ function Board() {
         let row = e.target.attributes.row.value;
         const updatedSquareProps = squareProps.map(squareProp => {
             if (squareProp.id === id) {
-                squareProp.bgColor = 'red';
+                squareProp.bgColor = '#bbdefb';
                 return squareProp;
             } else if (squareProp.column === column || squareProp.row === row) {
-                squareProp.bgColor = 'green';
+                squareProp.bgColor = '#e2ebf3';
                 return squareProp;
             } else {
                 squareProp.bgColor = 'white';

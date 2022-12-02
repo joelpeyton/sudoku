@@ -1,6 +1,31 @@
-function Square({ number, bWidth, rWidth }) {
+function Square({ 
+        id,
+        number,
+        bgColor,
+        bWidth,
+        rWidth,
+        column,
+        row,       
+        handleSquareClick
+    }
+) {
+
     return (
-        <div className="square" style={{borderBottomWidth: bWidth, borderRightWidth: rWidth}}>
+        <div 
+            type="button"
+            className="square" 
+            id={id}
+            column={column}
+            row={row}
+            style={
+                {
+                    borderBottomWidth: bWidth, 
+                    borderRightWidth: rWidth,
+                    backgroundColor: bgColor
+                }
+            }
+            onClick={handleSquareClick}
+        >
             {number}
         </div>
     );

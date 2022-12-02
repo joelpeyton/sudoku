@@ -1,16 +1,44 @@
 import Square from "./Square";
+import initialSquareProps from "../js/squareProps";
+import { useState } from "react";
 
 function Board() {
     let board = [];
-    let bWidth, rWidth;
-    for (var i = 0; i < 9; i++){
-        bWidth = "0px";
-        for (var j = 0; j < 9; j++){     
-            rWidth = "0px";
-            if (i === 2 || i === 5) { bWidth = "3px" }
-            if (j === 2 || j === 5) { rWidth = "3px" }   
-            board.push(<Square key={j + (i * 9)} number={0} bWidth={bWidth} rWidth={rWidth}/>)
-        }
+    for (let index in initialSquareProps) {
+        board.push(
+            <Square 
+                key={initialSquareProps[index].key}
+                id={initialSquareProps[index].id} 
+                number={initialSquareProps[index].number}
+                bgColor={initialSquareProps[index].bgColor}
+                bWidth={initialSquareProps[index].bWidth} 
+                rWidth={initialSquareProps[index].rWidth}
+                column={initialSquareProps[index].column}
+                row={initialSquareProps[index].row}
+                handleSquareClick={handleSquareClick}
+            />
+        )  
+    }
+
+    const [squareProps, setSquareProps] = useState(initialSquareProps); 
+
+    function handleSquareClick(e) {
+        let id = e.target.id;
+        let column = e.target.attributes.column.value;
+        let row = e.target.attributes.row.value;
+        const updatedSquareProps = squareProps.map(squareProp => {
+            if (squareProp.id === id) {
+                squareProp.bgColor = 'red';
+                return squareProp;
+            } else if (squareProp.column === column || squareProp.row === row) {
+                squareProp.bgColor = 'green';
+                return squareProp;
+            } else {
+                squareProp.bgColor = 'white';
+                return squareProp;
+            }
+        });
+        setSquareProps(updatedSquareProps);
     }
     
     return ( 

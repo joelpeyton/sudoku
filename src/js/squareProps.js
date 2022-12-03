@@ -1,3 +1,6 @@
+import getBoard from "./generateSudokuBoard";
+
+let board = getBoard();
 let initialSquareProps = [];
 let column;
 let row = 0;
@@ -42,7 +45,7 @@ for (let i = 0; i <= 80; i++) {
     let currentSquare = {
         key: i,
         id: String(i),
-        number: '',
+        number: String(board[i]),
         bgColor: 'white',
         bWidth: bWidth,
         rWidth: rWidth,

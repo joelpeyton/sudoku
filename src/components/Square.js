@@ -5,7 +5,8 @@ function Square({
         bWidth,
         rWidth,
         column,
-        row,       
+        row, 
+        block,      
         handleSquareClick
     }
 ) {
@@ -17,6 +18,7 @@ function Square({
             id={id}
             column={column}
             row={row}
+            block={block}
             style={
                 {
                     borderBottomWidth: bWidth, 

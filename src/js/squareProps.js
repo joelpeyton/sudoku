@@ -1,7 +1,9 @@
 let initialSquareProps = [];
 let column;
 let row = 0;
-let block;
+let block = 1;
+let cCounter = 0;
+let rCounter = 0;
 let rWidth;
 let bWidth; 
 
@@ -24,19 +26,33 @@ for (let i = 0; i <= 80; i++) {
         bWidth = '0px';
     }
 
+    if (cCounter === 3 || cCounter === 6) {
+        block++;
+    } else if (cCounter === 9) {
+        cCounter = 0;
+        block -= 2;
+        rCounter++;
+        if (rCounter === 3 || rCounter === 6) {
+            block += 3;
+        }
+        
+    }
+    cCounter++;
+
     let currentSquare = {
         key: i,
         id: String(i),
-        number: String(i),
+        number: String(block),
         bgColor: 'white',
         bWidth: bWidth,
         rWidth: rWidth,
-        block: '',
+        block: String(block),
         column: String(column),
         row: String(row)
     };
 
     initialSquareProps.push(currentSquare);
+    
 }
 
 export default initialSquareProps;

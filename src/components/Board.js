@@ -15,6 +15,7 @@ function Board() {
                 rWidth={initialSquareProps[index].rWidth}
                 column={initialSquareProps[index].column}
                 row={initialSquareProps[index].row}
+                block={initialSquareProps[index].block}
                 handleSquareClick={handleSquareClick}
             />
         )  
@@ -26,11 +27,12 @@ function Board() {
         let id = e.target.id;
         let column = e.target.attributes.column.value;
         let row = e.target.attributes.row.value;
+        let block = e.target.attributes.block.value;
         const updatedSquareProps = squareProps.map(squareProp => {
             if (squareProp.id === id) {
                 squareProp.bgColor = '#bbdefb';
                 return squareProp;
-            } else if (squareProp.column === column || squareProp.row === row) {
+            } else if (squareProp.column === column || squareProp.row === row || squareProp.block === block) {
                 squareProp.bgColor = '#e2ebf3';
                 return squareProp;
             } else {

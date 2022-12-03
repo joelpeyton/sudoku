@@ -65,6 +65,10 @@ h3 {
     font-size: 2rem;
 }
 
+.numberBtn:hover {
+    background-color: #e2ebf3;
+}
+
 /* RWD */
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */

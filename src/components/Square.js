@@ -6,7 +6,8 @@ function Square({
         rWidth,
         column,
         row, 
-        block,      
+        block,  
+        active,    
         handleSquareClick
     }
 ) {

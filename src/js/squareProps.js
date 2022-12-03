@@ -42,17 +42,17 @@ for (let i = 0; i <= 80; i++) {
     let currentSquare = {
         key: i,
         id: String(i),
-        number: String(block),
+        number: '',
         bgColor: 'white',
         bWidth: bWidth,
         rWidth: rWidth,
         block: String(block),
         column: String(column),
-        row: String(row)
+        row: String(row),
+        active: false
     };
 
-    initialSquareProps.push(currentSquare);
-    
+    initialSquareProps.push(currentSquare); 
 }
 
 export default initialSquareProps;

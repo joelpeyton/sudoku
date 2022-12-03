@@ -31,20 +31,19 @@ function Display() {
         let column = e.target.attributes.column.value;
         let row = e.target.attributes.row.value;
         let block = e.target.attributes.block.value;
+        let number = e.target.innerText;
         const updatedSquareProps = squareProps.map(squareProp => {
+            squareProp.active = squareProp.id === id ? true : false;
             if (squareProp.id === id) {
                 squareProp.bgColor = '#bbdefb';
-                squareProp.active = true;
-                return squareProp;
             } else if (squareProp.column === column || squareProp.row === row || squareProp.block === block) {
                 squareProp.bgColor = '#e2ebf3';
-                squareProp.active = false;
-                return squareProp;
+            } else if (squareProp.number === number) {
+                squareProp.bgColor = '#c3d7ea';
             } else {
                 squareProp.bgColor = 'white';
-                squareProp.active = false;
-                return squareProp;
             }
+            return squareProp;
         });
         setSquareProps(updatedSquareProps);
     }

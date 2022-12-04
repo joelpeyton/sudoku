@@ -79,23 +79,20 @@ function generateBoard() {
             board.push(row);
         }
     }
-    return board;
-}
 
-function getBoard(){
-    let board = generateBoard();
-    let arrBoard = [];
+    /* Flatten board */
+    let flattened = [];
 
     for (let row in board) {
         for (let column in board[row]) {
-            arrBoard.push(board[row][column]);
+            flattened.push(board[row][column]);
         }
     }
 
-    return arrBoard;
-    }
+    return flattened;
+}
 
-export default getBoard;
+export default generateBoard;
 
 
 

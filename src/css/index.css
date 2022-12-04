@@ -9,7 +9,16 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-.container {
+i {
+    float: right;
+    color: #34495e !important;
+}
+
+.btn {
+    border-radius: 0;
+}
+
+.game-area {
     display: flex;
     justify-content: center;
     width: fit-content;
@@ -17,18 +26,13 @@ body {
     padding-right: 0;
 }
 
-i {
-    float: right;
-    color: #34495e !important;
-}
-
 /* Header component */
 h3 {
     text-align: center;
 }
 
-/* Board component */
-.board {
+/* Grid component */
+.grid {
     width: 600px;
     height: 600px;
     float: left;

@@ -3,6 +3,7 @@ import Header from "./Header";
 import Square from "./Square";
 import Grid from "./Grid";
 import NumberPad from "./NumberPad";
+import ButtonGroup from "./ButtonGroup";
 import initialProps from "../js/setInitialProps";
 
 function App() {
@@ -47,7 +48,7 @@ function App() {
         setSquareProps(updatedSquareProps);
     }
 
-    function handleBtnClick(e){
+    function handleNumberClick(e){
         let chosenNumber = e.target.innerText;
         const updatedSquareProps = squareProps.map(squareProp => {
             if (squareProp.active) {
@@ -67,9 +68,18 @@ function App() {
     return (
         <>
             <Header />
+            <div className="container mb-3">
+                <div className="row">
+                    <div className="col">
+                        <ButtonGroup />
+                    </div>  
+                </div>
+            </div>
             <div className="container">
-                <Grid squares={squares}/>
-                <NumberPad handleBtnClick={handleBtnClick}/>
+                <div className="game-area">
+                        <Grid squares={squares}/>
+                        <NumberPad handleNumberClick={handleNumberClick}/>
+                </div>
             </div>
         </>
     );

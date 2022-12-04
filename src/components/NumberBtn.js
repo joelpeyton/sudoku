@@ -1,4 +1,4 @@
-function NumberBtn({ number, bWidth, handleBtnClick }) {
+function NumberBtn({ number, bWidth, handleNumberClick }) {
     function handleOnMouseDown(e) {
         e.target.style.backgroundColor = '#bbdefb';
     }
@@ -8,7 +8,7 @@ function NumberBtn({ number, bWidth, handleBtnClick }) {
     }
 
     return (
-        <div className="numberBtn" style={{borderBottomWidth: bWidth}} onClick={handleBtnClick} onMouseDown={handleOnMouseDown} onMouseUp={handleOnMouseUp}>
+        <div className="numberBtn" style={{borderBottomWidth: bWidth}} onClick={handleNumberClick} onMouseDown={handleOnMouseDown} onMouseUp={handleOnMouseUp}>
             {number}
         </div>
     );

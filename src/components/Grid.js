@@ -30,7 +30,7 @@ function Grid({ squares }) {
     }
     
     return ( 
-        <div className="board">
+        <div className="grid">
             {grid}
         </div>
     );

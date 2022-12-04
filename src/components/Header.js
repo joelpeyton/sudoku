@@ -6,7 +6,7 @@ function Header() {
                     <i className="bi bi-github p-1"></i>
                 </a> 
             </div>
-            <h3 className="m-5">Sudoku</h3>
+            <h3 className="m-1">Sudoku</h3>
         </>
     );
 }

@@ -9,17 +9,13 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-.container {
-    display: flex;
-    justify-content: center;
-    width: fit-content;
-    padding-left: 0;
-    padding-right: 0;
-}
-
 i {
     float: right;
     color: #34495e !important;
+}
+
+.btn {
+    border-radius: 0;
 }
 
 /* Header component */
@@ -54,9 +50,8 @@ h3 {
 /* NumberPad component */
 .numberPad {
     border: 1px solid #34495e;
-    margin-left: calc(600px / 9);
-    width: calc(600px / 9);
-    height: 600px;
+    width: 600px;
+    height: calc(600px / 9);
 }
 
 /* NumberBtn component */
@@ -64,11 +59,12 @@ h3 {
     display: flex;
     justify-content: center;
     align-items: center;
-    border-bottom: 1px solid #34495e;
-    width: auto;
-    height: calc(100% / 9);
+    border-right: 1px solid #34495e;
+    width: calc(100% / 9);
+    height: 100%;
     font-size: 2rem;
     cursor: pointer;
+    float: left;
 }
 
 .numberBtn:hover {

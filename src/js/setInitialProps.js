@@ -3,7 +3,7 @@ import hideNumbers from "./hideNumbers";
 
 function setInitialProps() {
     let board = generateBoard();
-    let hidden = hideNumbers();
+    let hidden = hideNumbers('easy');
     let initialProps = [];
     let column;
     let row = 0;
@@ -46,5 +46,4 @@ function setInitialProps() {
     return initialProps;
 }
 
-let initialProps = setInitialProps();
-export default initialProps;
+export default setInitialProps;

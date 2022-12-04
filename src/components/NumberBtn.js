@@ -8,7 +8,7 @@ function NumberBtn({ number, bWidth, handleBtnClick }) {
     }
 
     return (
-        <div className="numberBtn" style={{borderBottomWidth: bWidth}} onClick={handleBtnClick} onMouseDown={handleOnMouseDown} onMouseUp={handleOnMouseUp}>
+        <div className="numberBtn" style={{borderRightWidth: bWidth}} onClick={handleBtnClick} onMouseDown={handleOnMouseDown} onMouseUp={handleOnMouseUp}>
             {number}
         </div>
     );

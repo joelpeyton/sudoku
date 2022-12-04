@@ -3,10 +3,11 @@ import Header from "./Header";
 import Square from "./Square";
 import Grid from "./Grid";
 import NumberPad from "./NumberPad";
-import initialProps from "../js/setInitialProps";
+import ButtonGroup from "./ButtonGroup";
+import setInitialProps from "../js/setInitialProps";
 
 function App() {
-    const [squareProps, setSquareProps] = useState(initialProps); 
+    const [squareProps, setSquareProps] = useState(setInitialProps); 
     let squares = [];
     for (let index in squareProps) {
         squares.push(
@@ -26,6 +27,7 @@ function App() {
     }
 
     function handleSquareClick(e) {
+        e.stopPropagation();
         let id = e.target.id;
         let column = e.target.attributes.column.value;
         let row = e.target.attributes.row.value;
@@ -47,7 +49,8 @@ function App() {
         setSquareProps(updatedSquareProps);
     }
 
-    function handleBtnClick(e){
+    function handleNumberClick(e){
+        e.stopPropagation();
         let chosenNumber = e.target.innerText;
         const updatedSquareProps = squareProps.map(squareProp => {
             if (squareProp.active) {
@@ -64,12 +67,32 @@ function App() {
         setSquareProps(updatedSquareProps);
     }
 
+    function handleDifficulty(e) {
+        e.stopPropagation();
+        //let difficulty = e.target.id;
+        setSquareProps(setInitialProps);
+    }
+
     return (
         <>
             <Header />
+            
             <div className="container">
-                <Grid squares={squares}/>
-                <NumberPad handleBtnClick={handleBtnClick}/>
+                <div className="row">
+                    <div className="col">
+                        <ButtonGroup handleDifficulty={handleDifficulty}/>
+                    </div>  
+                </div>
+                <div className="row mt-2">
+                    <div className="col">
+                        <Grid squares={squares}/>
+                    </div>
+                </div>
+                <div className="row mt-2">
+                    <div className="col">
+                        <NumberPad handleNumberClick={handleNumberClick}/>
+                    </div>
+                </div>
             </div>
         </>
     );

@@ -4,26 +4,25 @@ import Square from "./Square";
 import Grid from "./Grid";
 import NumberPad from "./NumberPad";
 import ButtonGroup from "./ButtonGroup";
-import initialProps from "../js/setInitialProps";
+import setInitialProps from "../js/setInitialProps";
+import hideNumbers from "../js/hideNumbers";
 
 function App() {
-    const [squareProps, setSquareProps] = useState(initialProps); 
-    let squares = [];
-    for (let index in squareProps) {
-        squares.push(
-            <Square 
-                key={squareProps[index].key}
-                id={squareProps[index].id} 
-                correctNumber={squareProps[index].correctNumber}
-                currentNumber={squareProps[index].currentNumber}
-                bgColor={squareProps[index].bgColor}
-                column={squareProps[index].column}
-                row={squareProps[index].row}
-                block={squareProps[index].block}
-                active={squareProps[index].active}
-                handleSquareClick={handleSquareClick}
-            />
-        )  
+    const [squareProps, setSquareProps] = useState(setInitialProps); 
+    const [difficulty, setDifficulty] = useState('easy');
+    const [isNewGame, setIsNewGame] = useState(true);
+    
+    if (isNewGame) {setUpBoard()};
+
+    function setUpBoard() {
+        let hiddenNumbers = hideNumbers(difficulty);
+        const updatedSquareProps = squareProps.map(squareProp => {
+            squareProp.currentNumber = squareProp.correctNumber;
+            if (hiddenNumbers.includes(squareProp.id)) {squareProp.currentNumber = ''};
+            return squareProp;
+        });
+        setIsNewGame(false);
+        setSquareProps(updatedSquareProps);
     }
 
     function handleSquareClick(e) {
@@ -48,7 +47,7 @@ function App() {
         setSquareProps(updatedSquareProps);
     }
 
-    function handleNumberClick(e){
+    function handleNumberClick(e) {
         let chosenNumber = e.target.innerText;
         const updatedSquareProps = squareProps.map(squareProp => {
             if (squareProp.active) {
@@ -65,13 +64,37 @@ function App() {
         setSquareProps(updatedSquareProps);
     }
 
+    function handleDifficulty(e) {
+        let difficulty = e.target.id;
+        setIsNewGame(true);
+        setDifficulty(difficulty);
+    }
+
+    let squares = [];
+    for (let index in squareProps) { 
+        squares.push(
+            <Square 
+                key={squareProps[index].key}
+                id={squareProps[index].id} 
+                correctNumber={squareProps[index].correctNumber}
+                currentNumber={squareProps[index].currentNumber}
+                bgColor={squareProps[index].bgColor}
+                column={squareProps[index].column}
+                row={squareProps[index].row}
+                block={squareProps[index].block}
+                active={squareProps[index].active}
+                handleSquareClick={handleSquareClick}
+            />
+        )  
+    } 
+
     return (
         <>
             <Header />
             <div className="container mb-3">
                 <div className="row">
                     <div className="col">
-                        <ButtonGroup />
+                        <ButtonGroup handleDifficulty={handleDifficulty}/>
                     </div>  
                 </div>
             </div>

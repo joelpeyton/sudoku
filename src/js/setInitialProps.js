@@ -1,9 +1,7 @@
 import generateBoard from "./generateBoard";
-import hideNumbers from "./hideNumbers";
 
 function setInitialProps() {
     let board = generateBoard();
-    let hidden = hideNumbers();
     let initialProps = [];
     let column;
     let row = 0;
@@ -27,13 +25,11 @@ function setInitialProps() {
         }
         cCounter++;
 
-        let currentNumber = hidden.includes(i) ? ' ' : String(board[i]); 
-
         let currentSquare = {
             key: i,
             id: String(i),
             correctNumber: String(board[i]),
-            currentNumber: currentNumber,
+            currentNumber: String(board[i]),
             column: String(column),
             row: String(row),
             block: String(block),
@@ -46,5 +42,4 @@ function setInitialProps() {
     return initialProps;
 }
 
-let initialProps = setInitialProps();
-export default initialProps;
+export default setInitialProps;

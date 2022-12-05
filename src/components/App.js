@@ -37,7 +37,7 @@ function App() {
                 squareProp.bgColor = '#bbdefb';
             } else if (squareProp.column === column || squareProp.row === row || squareProp.block === block) {
                 squareProp.bgColor = '#e2ebf3';
-            } else if (squareProp.currentNumber === number) {
+            } else if (squareProp.currentNumber === number && number !== '') {
                 squareProp.bgColor = '#c3d7ea';
             } else {
                 squareProp.bgColor = 'white';

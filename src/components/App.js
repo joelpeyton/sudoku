@@ -3,19 +3,19 @@ import Header from "./Header";
 import Square from "./Square";
 import Grid from "./Grid";
 import NumberPad from "./NumberPad";
-import ButtonGroup from "./ButtonGroup";
+//import ButtonGroup from "./ButtonGroup";
 import setInitialProps from "../js/setInitialProps";
 import hideNumbers from "../js/hideNumbers";
 
 function App() {
     const [squareProps, setSquareProps] = useState(setInitialProps); 
-    const [difficulty, setDifficulty] = useState('easy');
+    //const [difficulty, setDifficulty] = useState('easy');
     const [isNewGame, setIsNewGame] = useState(true);
     
     if (isNewGame) {setUpBoard()};
 
     function setUpBoard() {
-        let hiddenNumbers = hideNumbers(difficulty);
+        let hiddenNumbers = hideNumbers('easy');
         const updatedSquareProps = squareProps.map(squareProp => {
             if (hiddenNumbers.includes(squareProp.id)) {
                 squareProp.currentNumber = ' ';
@@ -67,12 +67,12 @@ function App() {
         setSquareProps(updatedSquareProps);
     }
 
-    function handleDifficulty(e) {
+    /*function handleDifficulty(e) {
         let difficulty = e.target.id;
         setSquareProps(setInitialProps);
         setDifficulty(difficulty);
         setIsNewGame(true);
-    }
+    }*/
 
     let squares = [];
     for (let index in squareProps) { 
@@ -98,11 +98,11 @@ function App() {
         <>
             <Header />
             <div className="container mb-3">
-                <div className="row">
+                {/*<div className="row">
                     <div className="col">
                         <ButtonGroup handleDifficulty={handleDifficulty}/>
                     </div>  
-                </div>
+                </div>*/}
             </div>
             <div className="container">
                 <div className="game-area">

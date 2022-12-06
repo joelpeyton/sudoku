@@ -17,8 +17,11 @@ function App() {
     function setUpBoard() {
         let hiddenNumbers = hideNumbers(difficulty);
         const updatedSquareProps = squareProps.map(squareProp => {
-            squareProp.currentNumber = squareProp.correctNumber;
-            if (hiddenNumbers.includes(squareProp.id)) {squareProp.currentNumber = ''};
+            if (hiddenNumbers.includes(squareProp.id)) {
+                squareProp.currentNumber = ' ';
+                squareProp.isInitialNumber = false;
+                squareProp.fontWeight = 'initial';
+            }
             return squareProp;
         });
         setIsNewGame(false);
@@ -37,7 +40,7 @@ function App() {
                 squareProp.bgColor = '#bbdefb';
             } else if (squareProp.column === column || squareProp.row === row || squareProp.block === block) {
                 squareProp.bgColor = '#e2ebf3';
-            } else if (squareProp.currentNumber === number && number !== '') {
+            } else if (squareProp.currentNumber === number && number !== ' ') {
                 squareProp.bgColor = '#c3d7ea';
             } else {
                 squareProp.bgColor = 'white';
@@ -50,7 +53,7 @@ function App() {
     function handleNumberClick(e) {
         let chosenNumber = e.target.innerText;
         const updatedSquareProps = squareProps.map(squareProp => {
-            if (squareProp.active) {
+            if (squareProp.active && !squareProp.isInitialNumber) {
                 if (squareProp.currentNumber === chosenNumber) {
                     squareProp.currentNumber = ' ';
                 } else {
@@ -66,8 +69,9 @@ function App() {
 
     function handleDifficulty(e) {
         let difficulty = e.target.id;
-        setIsNewGame(true);
+        setSquareProps(setInitialProps);
         setDifficulty(difficulty);
+        setIsNewGame(true);
     }
 
     let squares = [];
@@ -76,9 +80,11 @@ function App() {
             <Square 
                 key={squareProps[index].key}
                 id={squareProps[index].id} 
+                isInitialNumber={squareProps[index].isInitialNumber}
                 correctNumber={squareProps[index].correctNumber}
                 currentNumber={squareProps[index].currentNumber}
                 bgColor={squareProps[index].bgColor}
+                fontWeight={squareProps[index].fontWeight}
                 column={squareProps[index].column}
                 row={squareProps[index].row}
                 block={squareProps[index].block}
@@ -100,8 +106,8 @@ function App() {
             </div>
             <div className="container">
                 <div className="game-area">
-                        <Grid squares={squares}/>
-                        <NumberPad handleNumberClick={handleNumberClick}/>
+                    <Grid squares={squares}/>
+                    <NumberPad handleNumberClick={handleNumberClick}/>
                 </div>
             </div>
         </>

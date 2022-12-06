@@ -28,12 +28,14 @@ function setInitialProps() {
         let currentSquare = {
             key: i,
             id: String(i),
+            isInitialNumber: true,
             correctNumber: String(board[i]),
             currentNumber: String(board[i]),
             column: String(column),
             row: String(row),
             block: String(block),
-            active: false
+            active: false,
+            fontWeight: 'lighter'
         };
 
         initialProps.push(currentSquare); 

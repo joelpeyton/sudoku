@@ -1,4 +1,4 @@
-function NumberBtn({ number, handleNumberClick }) {
+function NumberBtn({ number, handleNumberClick, disableNumberBtns }) {
     function handleOnMouseDown(e) {
         e.target.style.backgroundColor = '#bbdefb';
     }
@@ -7,11 +7,19 @@ function NumberBtn({ number, handleNumberClick }) {
         e.target.style.backgroundColor = '';
     }
 
-    return (
-        <div className="col m-1 numberBtn" onClick={handleNumberClick} onMouseDown={handleOnMouseDown} onMouseUp={handleOnMouseUp}>
-            {number}
-        </div>
-    );
+    if (disableNumberBtns) {
+        return (
+            <div className="col m-1 numberBtn" onMouseDown={handleOnMouseDown} onMouseUp={handleOnMouseUp}>
+                {number}
+            </div>
+        );
+    } else {
+        return (
+            <div className="col m-1 numberBtn" onClick={handleNumberClick} onMouseDown={handleOnMouseDown} onMouseUp={handleOnMouseUp}>
+                {number}
+            </div>
+        );
+    }
 }
 
 export default NumberBtn;

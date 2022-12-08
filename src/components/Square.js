@@ -2,6 +2,7 @@ function Square({
         id,
         currentNumber,
         bgColor,
+        color,
         fontWeight,
         column,
         row, 
@@ -11,7 +12,16 @@ function Square({
 ) {
 
     return (
-        <div type="button" className="number" id={id} column={column} row={row} block={block} style={{backgroundColor:bgColor, fontWeight:fontWeight}} onClick={handleSquareClick}>
+        <div 
+            type="button" 
+            className="number" 
+            id={id} 
+            column={column} 
+            row={row} 
+            block={block} 
+            style={{backgroundColor:bgColor, color:color, fontWeight:fontWeight}} 
+            onClick={handleSquareClick}
+        >
             {currentNumber}
         </div>
     );

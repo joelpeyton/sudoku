@@ -1,4 +1,4 @@
-function Grid({ squares }) {
+function Grid({ squares, hideTick }) {
     let grid = [];
     let column;
     let row = 0;
@@ -33,6 +33,7 @@ function Grid({ squares }) {
         <div className="col">
             <div className="grid">
                 {grid}
+                <i className="bi bi-check-square-fill" hidden={hideTick}></i>
             </div>
         </div>
     );

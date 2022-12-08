@@ -1,9 +1,9 @@
 import NumberBtn from "./NumberBtn";
 
-function NumberPad({ handleNumberClick }) {
+function NumberPad({ handleNumberClick, disableNumberBtns }) {
     let numberBtns = [];
     for (let i = 1; i < 10; i++) {
-        numberBtns.push(<NumberBtn key={i} number={i} handleNumberClick={handleNumberClick}/>)
+        numberBtns.push(<NumberBtn key={i} number={i} handleNumberClick={handleNumberClick} disableNumberBtns={disableNumberBtns}/>)
     }
     
     return (

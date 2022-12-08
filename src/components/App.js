@@ -9,6 +9,10 @@ import ControlPanel from "./ControlPanel";
 function App() {
     const [squareProps, setSquareProps] = useState(setInitialProps); 
     const [isNewGame, setIsNewGame] = useState(true);
+    const [hideTick, setHideTick] = useState(true);
+    const [disableNumberBtns, setDisableNumberBtns] = useState(false);
+    const [disableEraserBtn, setDisableEraserBtn] = useState(false);
+    const [disableNotesBtn, setDisableNotesBtn] = useState(false);
     
     if (isNewGame) {setUpBoard()};
 
@@ -56,12 +60,37 @@ function App() {
                     squareProp.currentNumber = ' ';
                 } else {
                     squareProp.currentNumber = chosenNumber;
+                    squareProp.color = '#344861';
                 }
                 return squareProp;
             } else {
                 return squareProp;
             }
         });
+        setSquareProps(updatedSquareProps);
+    }
+
+    function handleCheckboardClick() {
+        let counter = 0;
+        const updatedSquareProps = squareProps.map(squareProp => {           
+            if (squareProp.currentNumber === squareProp.correctNumber) {
+                counter++;
+            }
+
+            if (squareProp.currentNumber !== squareProp.correctNumber && squareProp.currentNumber !== ' ') {
+                squareProp.color = 'red';
+                return squareProp;
+            } else {
+                squareProp.color = '#344861';
+                return squareProp;
+            }            
+        });
+        if (counter === 81) {
+            setHideTick(false);
+            setDisableNumberBtns(true);
+            setDisableEraserBtn(true);
+            setDisableNotesBtn(true);
+        }
         setSquareProps(updatedSquareProps);
     }
 
@@ -87,6 +116,7 @@ function App() {
                 correctNumber={squareProps[index].correctNumber}
                 currentNumber={squareProps[index].currentNumber}
                 bgColor={squareProps[index].bgColor}
+                color={squareProps[index].color}
                 fontWeight={squareProps[index].fontWeight}
                 column={squareProps[index].column}
                 row={squareProps[index].row}
@@ -101,8 +131,15 @@ function App() {
         <div className="container text-center">
             <Github />
             <div className="row">
-                <Grid squares={squares} />
-                <ControlPanel handleNumberClick={handleNumberClick} handleEraserClick={handleEraserClick}/>
+                <Grid squares={squares} hideTick={hideTick} />
+                <ControlPanel 
+                    handleNumberClick={handleNumberClick} 
+                    handleCheckboardClick={handleCheckboardClick}
+                    handleEraserClick={handleEraserClick}
+                    disableNumberBtns={disableNumberBtns}
+                    disableEraserBtn={disableEraserBtn}
+                    disableNotesBtn={disableNotesBtn}
+                />
             </div>
         </div>
     );

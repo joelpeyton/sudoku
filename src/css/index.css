@@ -7,23 +7,21 @@ body {
     color: #344861;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    font-size: 1rem;
 }
 
-i {
-    float: right;
+.bi {
     color: #34495e !important;
+    font-size: 1.5rem;
 }
 
-.btn {
-    border-radius: 0;
+.bi:hover {
+    opacity: 0.7;
+    cursor: pointer;
 }
 
-.game-area {
-    display: flex;
-    justify-content: center;
-    width: fit-content;
-    padding-left: 0;
-    padding-right: 0;
+.control-text {
+    font-size: small;
 }
 
 /* Header component */
@@ -33,9 +31,8 @@ h3 {
 
 /* Grid component */
 .grid {
-    width: 600px;
-    height: 600px;
-    float: left;
+    width: 50vh;
+    height: 50vh;
 }
 
 /* Square component */
@@ -52,26 +49,28 @@ h3 {
     align-items: center;
     width: 100%;
     height: 100%;
-    font-size: 2rem;
 }
 
-/* NumberPad component */
-.numberPad {
-    border: 1px solid #34495e;
-    margin-left: calc(600px / 9);
-    width: calc(600px / 9);
-    height: 600px;
+/* ControlPanel Component */
+.control-panel {
+    height: 50vh;
 }
+
+.heading {
+    height: calc(50vh / 5);
+} 
+
+.controls, .number-pad {
+    height: calc((50vh / 5) * 2);
+} 
 
 /* NumberBtn component */
 .numberBtn {
+    height: 5vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-bottom: 1px solid #34495e;
-    width: auto;
-    height: calc(100% / 9);
-    font-size: 2rem;
+    border: 1px solid #34495e;
     cursor: pointer;
 }
 
@@ -81,10 +80,32 @@ h3 {
 
 /* RWD */
 
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    /* Grid component */
+    .grid {
+        width: 90vw;
+        height: 90vw;
+    }
+
+    .heading {
+        margin-top: 1rem;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {}
+
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
     .container {
         width: 50%;
     }
-} 
+}
 

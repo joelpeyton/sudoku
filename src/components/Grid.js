@@ -30,8 +30,10 @@ function Grid({ squares }) {
     }
     
     return ( 
-        <div className="grid">
-            {grid}
+        <div className="col">
+            <div className="grid">
+                {grid}
+            </div>
         </div>
     );
 }

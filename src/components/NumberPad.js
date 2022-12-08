@@ -2,13 +2,27 @@ import NumberBtn from "./NumberBtn";
 
 function NumberPad({ handleNumberClick }) {
     let numberBtns = [];
-    for (let i = 1; i < 9; i++) {
-        numberBtns.push(<NumberBtn key={i} number={i} bWidth={'1px'} handleNumberClick={handleNumberClick}/>)
+    for (let i = 1; i < 10; i++) {
+        numberBtns.push(<NumberBtn key={i} number={i} handleNumberClick={handleNumberClick}/>)
     }
-    numberBtns.push(<NumberBtn key={9} number={9} bWidth={'0px'} handleNumberClick={handleNumberClick}/>)
+    
     return (
-        <div className="numberPad">
-            {numberBtns}
+        <div className="number-pad">
+            <div className="row">
+                {numberBtns[6]}
+                {numberBtns[7]}
+                {numberBtns[8]}
+            </div>
+            <div className="row">
+                {numberBtns[3]}
+                {numberBtns[4]}
+                {numberBtns[5]}
+            </div>
+            <div className="row">
+                {numberBtns[0]}
+                {numberBtns[1]}
+                {numberBtns[2]}
+            </div>
         </div>
     );
 }

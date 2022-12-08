@@ -35,7 +35,7 @@ function setInitialProps() {
             row: String(row),
             block: String(block),
             active: false,
-            fontWeight: 'lighter'
+            fontWeight: 'bold'
         };
 
         initialProps.push(currentSquare); 

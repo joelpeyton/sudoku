@@ -1,15 +1,13 @@
 import { useState } from "react";
-import Header from "./Header";
+import Github from "./Github";
 import Square from "./Square";
 import Grid from "./Grid";
-import NumberPad from "./NumberPad";
-//import ButtonGroup from "./ButtonGroup";
 import setInitialProps from "../js/setInitialProps";
 import hideNumbers from "../js/hideNumbers";
+import ControlPanel from "./ControlPanel";
 
 function App() {
     const [squareProps, setSquareProps] = useState(setInitialProps); 
-    //const [difficulty, setDifficulty] = useState('easy');
     const [isNewGame, setIsNewGame] = useState(true);
     
     if (isNewGame) {setUpBoard()};
@@ -67,13 +65,6 @@ function App() {
         setSquareProps(updatedSquareProps);
     }
 
-    /*function handleDifficulty(e) {
-        let difficulty = e.target.id;
-        setSquareProps(setInitialProps);
-        setDifficulty(difficulty);
-        setIsNewGame(true);
-    }*/
-
     let squares = [];
     for (let index in squareProps) { 
         squares.push(
@@ -95,22 +86,13 @@ function App() {
     } 
 
     return (
-        <>
-            <Header />
-            <div className="container mb-3">
-                {/*<div className="row">
-                    <div className="col">
-                        <ButtonGroup handleDifficulty={handleDifficulty}/>
-                    </div>  
-                </div>*/}
+        <div className="container text-center">
+            <Github />
+            <div className="row">
+                <Grid squares={squares}/>
+                <ControlPanel handleNumberClick={handleNumberClick}/>
             </div>
-            <div className="container">
-                <div className="game-area">
-                    <Grid squares={squares}/>
-                    <NumberPad handleNumberClick={handleNumberClick}/>
-                </div>
-            </div>
-        </>
+        </div>
     );
 }
 

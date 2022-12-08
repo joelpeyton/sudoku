@@ -65,6 +65,18 @@ function App() {
         setSquareProps(updatedSquareProps);
     }
 
+    function handleEraserClick() {
+        const updatedSquareProps = squareProps.map(squareProp => {
+            if (squareProp.active) {
+                squareProp.currentNumber = ' ';
+                return squareProp;
+            } else {
+                return squareProp;
+            }
+        });
+        setSquareProps(updatedSquareProps);
+    }
+
     let squares = [];
     for (let index in squareProps) { 
         squares.push(
@@ -89,8 +101,8 @@ function App() {
         <div className="container text-center">
             <Github />
             <div className="row">
-                <Grid squares={squares}/>
-                <ControlPanel handleNumberClick={handleNumberClick}/>
+                <Grid squares={squares} />
+                <ControlPanel handleNumberClick={handleNumberClick} handleEraserClick={handleEraserClick}/>
             </div>
         </div>
     );

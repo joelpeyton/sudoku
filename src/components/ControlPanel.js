@@ -2,16 +2,16 @@ import Controls from "./Controls";
 import Heading from "./Heading";
 import NumberPad from "./NumberPad";
 
-function ControlPanel({ handleNumberClick, handleCheckboardClick, handleEraserClick, disableNumberBtns, disableEraserBtn }) {
+function ControlPanel({ handleNumberClick, handleCheckboardClick, handleEraserClick, disableControls }) {
     return (
         <div className="col">
             <div className="control-panel">
                 <Heading />
-                <NumberPad handleNumberClick={handleNumberClick} disableNumberBtns={disableNumberBtns} />
+                <NumberPad handleNumberClick={handleNumberClick} disableControls={disableControls} />
                 <Controls 
                     handleCheckboardClick={handleCheckboardClick} 
                     handleEraserClick={handleEraserClick} 
-                    disableEraserBtn={disableEraserBtn}
+                    disableControls={disableControls}
                 />
             </div>
         </div>

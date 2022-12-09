@@ -10,9 +10,7 @@ function App() {
     const [squareProps, setSquareProps] = useState(setInitialProps); 
     const [isNewGame, setIsNewGame] = useState(true);
     const [hideTick, setHideTick] = useState(true);
-    const [disableNumberBtns, setDisableNumberBtns] = useState(false);
-    const [disableEraserBtn, setDisableEraserBtn] = useState(false);
-    const [disableNotesBtn, setDisableNotesBtn] = useState(false);
+    const [disableControls, setDisableControls] = useState(false);
     
     if (isNewGame) {setUpBoard()};
 
@@ -87,9 +85,7 @@ function App() {
         });
         if (counter === 81) {
             setHideTick(false);
-            setDisableNumberBtns(true);
-            setDisableEraserBtn(true);
-            setDisableNotesBtn(true);
+            setDisableControls(true);
         }
         setSquareProps(updatedSquareProps);
     }
@@ -136,9 +132,7 @@ function App() {
                     handleNumberClick={handleNumberClick} 
                     handleCheckboardClick={handleCheckboardClick}
                     handleEraserClick={handleEraserClick}
-                    disableNumberBtns={disableNumberBtns}
-                    disableEraserBtn={disableEraserBtn}
-                    disableNotesBtn={disableNotesBtn}
+                    disableControls={disableControls}
                 />
             </div>
         </div>

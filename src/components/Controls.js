@@ -1,9 +1,9 @@
-function Controls({ handleCheckboardClick, handleEraserClick, disableEraserBtn, disableNotesBtn }) {
-    let eraserBtn = disableEraserBtn ? 
+function Controls({ handleCheckboardClick, handleEraserClick, disableControls }) {
+    let eraserBtn = disableControls ? 
         <div className="col"><i className="bi bi-eraser-fill"></i></div> :
         <div className="col"><i className="bi bi-eraser-fill" onClick={handleEraserClick}></i></div>
 
-    let notesBtn = disableNotesBtn ?
+    let notesBtn = disableControls ?
         <div className="col"><i className="bi bi-pencil-square"></i></div> :
         <div className="col"><i className="bi bi-pencil-square"></i></div>
     

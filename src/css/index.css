@@ -15,22 +15,13 @@ body {
     font-size: 1.5rem;
 }
 
-.bi:hover {
-    opacity: 0.7;
-    cursor: pointer;
-}
-
 .bi-check-square-fill {
     display: flex;
     justify-content: flex-end;
     align-items: center;
     font-size: 50vh;
-    color: #17d417 !important;
+    color: #34495e !important;
     opacity: 0.5;
-}
-
-.control-text {
-    font-size: small;
 }
 
 /* Header component */
@@ -65,13 +56,23 @@ h3 {
     height: 50vh;
 }
 
-.heading {
-    height: calc(50vh / 5);
+.heading, .controls {
+    height: calc(50vh / 4);
 } 
 
-.controls, .number-pad {
-    height: calc((50vh / 5) * 2);
+.number-pad {
+    height: calc(50vh / 2);
 } 
+
+/* Controls component */
+.controls .bi:hover {
+    color: #bbdefb !important;
+    cursor: pointer;
+}
+
+.control-text {
+    font-size: small;
+}
 
 /* NumberBtn component */
 .numberBtn {
@@ -118,7 +119,7 @@ h3 {
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
     .container {
-        width: 50%;
+        width: 75%;
     }
 }
 

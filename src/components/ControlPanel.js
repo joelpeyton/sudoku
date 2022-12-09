@@ -2,7 +2,7 @@ import Controls from "./Controls";
 import Heading from "./Heading";
 import NumberPad from "./NumberPad";
 
-function ControlPanel({ handleNumberClick, handleCheckboardClick, handleEraserClick, disableControls }) {
+function ControlPanel({ handleNumberClick, handleCheckboardClick, handleEraserClick, handleNewGameClick, disableControls }) {
     return (
         <div className="col">
             <div className="control-panel">
@@ -11,6 +11,7 @@ function ControlPanel({ handleNumberClick, handleCheckboardClick, handleEraserCl
                 <Controls 
                     handleCheckboardClick={handleCheckboardClick} 
                     handleEraserClick={handleEraserClick} 
+                    handleNewGameClick={handleNewGameClick}
                     disableControls={disableControls}
                 />
             </div>

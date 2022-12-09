@@ -102,6 +102,10 @@ function App() {
         setSquareProps(updatedSquareProps);
     }
 
+    function handleNewGameClick() {
+        window.location.reload(true);
+    }
+
     let squares = [];
     for (let index in squareProps) { 
         squares.push(
@@ -132,6 +136,7 @@ function App() {
                     handleNumberClick={handleNumberClick} 
                     handleCheckboardClick={handleCheckboardClick}
                     handleEraserClick={handleEraserClick}
+                    handleNewGameClick={handleNewGameClick}
                     disableControls={disableControls}
                 />
             </div>
